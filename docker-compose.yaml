@@ -1,0 +1,26 @@
+# Docker Compose for Jenkins Server
+version: '3.1'
+
+services:
+
+  jenkins-server-2.414.3-lts:
+    image: jenkins/jenkins:2.414.3-lts-jdk11
+    restart: always
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      JENKINS_01: root
+      JENKINS_02: root
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+    networks:
+      - common-network
+
+networks:
+  common-network:
+    external: true
+
+#The Jenkins Server
+#Server : http://localhost:8080
+#User/Pass : admin/ {file ./jenkins_home/secrets/initialPassword}

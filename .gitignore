@@ -1,3 +1,7 @@
+# Ignore jenkins folder
+jenkins_home/
+jenkins/
+
 # gopls gets indigestion without go.work, CI gets indigestion WITH go.work
 /go.work
 /go.work.sum
